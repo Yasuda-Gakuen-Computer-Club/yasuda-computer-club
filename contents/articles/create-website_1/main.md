@@ -96,6 +96,25 @@ manifest: {
 
 これでSCSS記法で書けるようになっているはずです。
 
+また、全ページ共通のSASS変数を使えるように `nuxt-sass-resources-loader` をインストールします。これもいつも通りnpmでインストールして、assetsディレクトリ内に以下のようにファイルを作成します。
+
+```
+assets/
+    └ sass/
+        └ variables.scss
+```
+
+そして nuxt.config.js に以下のように追記します。
+
+```
+modules: [
+    "@nuxtjs/pwa",
+    ["nuxt-sass-resources-loader", [
+        "~/assets/sass/variables.scss"
+    ]]
+]
+```
+
 # 内容を作る
 
 このホームページ最初の内容はこのホームページを作成する記事をしますので、まずは記事データを入れるフォルダを作成します。yasuda-compter-club 直下に articlesディレクトリを作成します。この記事は create-website_1 としますので、以下のようにファイル・フォルダを作成します。

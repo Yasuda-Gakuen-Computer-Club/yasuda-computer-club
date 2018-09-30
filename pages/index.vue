@@ -19,7 +19,7 @@ export default {
 .header {
     width: 100%;
     height: 80px;
-    border-bottom: 1px solid #2196F3;
+    border-bottom: 1px solid $theme_color;
 
     & .site-title {
         display: flex;
@@ -28,6 +28,7 @@ export default {
         max-width: 1200px;
         height: 100%;
         margin: 0 auto;
+        color: $theme_color;
         font-family: "GSanSerif-B";
         font-weight: normal;
     }
