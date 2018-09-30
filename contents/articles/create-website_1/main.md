@@ -88,6 +88,14 @@ manifest: {
 
 あとはstaticディレクトリにicon.pngを配置し、.gitignore に "sw.*" を追加します。 これだけでPWA化は完了です。
 
+# SCSSを使えるようにする
+
+生のCSSなんて書いていられないので、SCSSを使えるようにSASSをインストールします。
+
+`npm install sass-loader node-sass --save-dev`
+
+これでSCSS記法で書けるようになっているはずです。
+
 # 内容を作る
 
 このホームページ最初の内容はこのホームページを作成する記事をしますので、まずは記事データを入れるフォルダを作成します。yasuda-compter-club 直下に articlesディレクトリを作成します。この記事は create-website_1 としますので、以下のようにファイル・フォルダを作成します。

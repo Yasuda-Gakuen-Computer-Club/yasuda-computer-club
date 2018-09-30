@@ -1,13 +1,21 @@
 <template>
-
+    <div>
+        <header class="header">
+        </header>
+        <main class="main">
+        </main>
+    </div>
 </template>
 
 <script>
 export default {
-  components: {
-  }
+    components: {
+    }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.header {
+    width: 100%;
+}
 </style>
