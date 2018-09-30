@@ -72,9 +72,21 @@ yasuda-computer-club/
 
 PWAは Progressive Web Apps のことです。詳しい説明は省略しますが、Nuxt.jsではとても簡単にPWAを実装することができます。
 
-まずは `npm install @nuxtjs/pwa --save` を実行して `@nuxtjs/pwa` をインストールします。次に nuxt.config.js の modules の配列に "@nuxtjs/pwa" を追加します。
+まずは `npm install @nuxtjs/pwa --save` を実行して `@nuxtjs/pwa` をインストールします。次に nuxt.config.js を以下のように編集します。
 
-これだけでPWA化は完了です。あとはstaticディレクトリに
+```
+// (省略)
+modules: [
+    "@nuxtjs/pwa"
+],
+manifest: {
+    name: "安田学園コンピュータークラブ",
+    lang: "ja"
+}
+// (省略)
+```
+
+あとはstaticディレクトリにicon.pngを配置し、.gitignore に "sw.*" を追加します。 これだけでPWA化は完了です。
 
 # 内容を作る
 
