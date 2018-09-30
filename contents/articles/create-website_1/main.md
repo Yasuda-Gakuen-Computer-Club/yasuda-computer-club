@@ -115,6 +115,8 @@ modules: [
 ]
 ```
 
+これで assets/sass/variables.scss に `$theme_color: #2196F3;` と書けば、`$theme_color` 変数が使えるようになっているはずです。
+
 # 内容を作る
 
 このホームページ最初の内容はこのホームページを作成する記事をしますので、まずは記事データを入れるフォルダを作成します。yasuda-compter-club 直下に articlesディレクトリを作成します。この記事は create-website_1 としますので、以下のようにファイル・フォルダを作成します。
