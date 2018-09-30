@@ -1,10 +1,10 @@
-# STATIC
+# static
 
-**This directory is not required, you can delete it if you don't want to use it.**
+**このディレクトリは必須ではありません。必要なければ削除することができます。**
 
-This directory contains your static files.
-Each file inside this directory is mapped to `/`.
+このディレクトリには静的ファイルを入れます。
+このディレクトリ内のファイルはいずれも / に配置されます。
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
+例: `/static/robots.txt` は `/robots.txt` に配置されます。
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/assets#static).
+[ドキュメント](https://ja.nuxtjs.org/guide/assets#webpack-%E3%81%A7%E6%89%B1%E3%82%8F%E3%81%AA%E3%81%84%E9%9D%99%E7%9A%84%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)

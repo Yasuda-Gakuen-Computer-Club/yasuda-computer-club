@@ -1,7 +1,7 @@
-# LAYOUTS
+# layouts
 
-**This directory is not required, you can delete it if you don't want to use it.**
+**このディレクトリは必須ではありません。必要なければ削除することができます。**
 
-This directory contains your Application Layouts.
+このディレクトリにはアプリケーションのレイアウトファイルを入れます。
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/views#layouts).
+[ドキュメント](https://ja.nuxtjs.org/guide/views#%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88)

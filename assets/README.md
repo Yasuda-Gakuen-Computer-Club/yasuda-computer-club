@@ -1,7 +1,12 @@
-# ASSETS
+# assets
 
-**This directory is not required, you can delete it if you don't want to use it.**
+**このディレクトリは必須ではありません。必要なければ削除することができます。**
 
-This directory contains your un-compiled assets such as LESS, SASS, or JavaScript.
+このディレクトリにはコンパイルされていない以下のようなファイルを入れます。
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/assets#webpacked).
++ JavaScript (*.js)
++ CSS (*.css)
++ SASS, SCSS (*.sass, *.scss)
++ 画像 (*.png, *.jpg, *.svg)
+
+[ドキュメント](https://ja.nuxtjs.org/guide/assets/)

@@ -1,7 +1,7 @@
-# PLUGINS
+# plugins
 
-**This directory is not required, you can delete it if you don't want to use it.**
+**このディレクトリは必須ではありません。必要なければ削除することができます。**
 
-This directory contains your Javascript plugins that you want to run before mounting the root Vue.js application.
+このディレクトリには、ルートの Vue.js アプリケーションをインスタンス化する前に実行したい JavaScript プラグインを入れます。
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/plugins).
+[ドキュメント](https://ja.nuxtjs.org/guide/plugins)
