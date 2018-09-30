@@ -42,6 +42,11 @@ module.exports = {
     "@nuxtjs/pwa"
   ],
 
+  manifest: {
+    name: "安田学園コンピュータークラブ",
+    lang: "ja"
+  },
+
   /*
   ** Build configuration
   */

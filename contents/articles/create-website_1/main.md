@@ -74,7 +74,7 @@ PWAは Progressive Web Apps のことです。詳しい説明は省略します�
 
 まずは `npm install @nuxtjs/pwa --save` を実行して `@nuxtjs/pwa` をインストールします。次に nuxt.config.js の modules の配列に "@nuxtjs/pwa" を追加します。
 
-これだけでPWA化は完了です。
+これだけでPWA化は完了です。あとはstaticディレクトリに
 
 # 内容を作る
 
