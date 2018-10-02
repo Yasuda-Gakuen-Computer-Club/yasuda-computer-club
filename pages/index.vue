@@ -4,6 +4,11 @@
             <h1 class="site-title">安田学園コンピュータークラブ</h1>
         </header>
         <main class="main">
+            <div class="grid-container">
+                <div class="catch"></div>
+                <div class="grid-small"><nuxt-link to="about/">ABOUT</nuxt-link></div>
+                <div class="grid-small"><nuxt-link to="activities/">ACTIVITIES</nuxt-link></div>
+            </div>
         </main>
     </div>
 </template>
@@ -16,7 +21,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$max_width: 1200px;
+$grid_columns_pc: 8;
+$grid_size: 150px;
+$grid_small_size: 50px;
+$max_width: $grid_size * $grid_columns_pc;
 
 .header {
     position: fixed;
@@ -46,9 +54,46 @@ $max_width: 1200px;
     max-width: $max_width;
     margin: 0 auto;
     padding-top: 80px;
-    display: grid;
-    grid: {
-        template-columns: repeat(5, 1fr);
+
+    & .grid-container {
+        width: 100%;
+        display: grid;
+        grid-template-rows: repeat(3, $grid_size) $grid_small_size;
+        grid-template-columns: repeat($grid_columns_pc, $grid_size);
+        grid-auto-rows: $grid_size;
+
+        & > * {
+            margin: 2px;
+        }
+
+        & .catch {
+            grid-row: span 3;
+            grid-column: span 5;
+            background-image: url("~assets/images/catch-image_1.jpg");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        & .grid-small {
+            grid-row: 4;
+            grid-column: span $grid_columns_pc / 2;
+
+            & a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid $theme_color;
+                color: $theme_color;
+                letter-spacing: 5px;
+                transition: background-color .2s;
+
+                &:hover {
+                    background-color: rgba($theme_color, .05);
+                }
+            }
+        }
     }
 }
 </style>

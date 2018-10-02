@@ -18,4 +18,8 @@ body {
     background-color: #FAFAFA;
     font-family: sans-serif;
 }
+a {
+    color: #3F51B5;
+    text-decoration: none;
+}
 </style>
