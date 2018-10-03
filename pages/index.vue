@@ -96,10 +96,11 @@ $max_width: $grid_size * $grid_columns_pc;
                 border: 1px solid $theme_color;
                 color: $theme_color;
                 letter-spacing: 5px;
-                transition: letter-spacing .2s;
+                transition: letter-spacing .5s;
 
                 &:hover {
                     letter-spacing: 7px;
+                    transition-duration: .2s;
                 }
 
                 &::before, &::after {
@@ -108,7 +109,8 @@ $max_width: $grid_size * $grid_columns_pc;
                     position: absolute;
                     border: 10px solid transparent;
                     opacity: 0;
-                    transition: .2s;
+                    transition-property: opacity,transform;
+                    transition-duration: .5s;
                 }
                 &::before {
                     top: 5px;
@@ -128,6 +130,7 @@ $max_width: $grid_size * $grid_columns_pc;
                 &:hover::before, &:hover::after {
                     transform: none;
                     opacity: 1;
+                    transition-duration: .2s;
                 }
             }
         }
