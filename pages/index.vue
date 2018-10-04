@@ -28,6 +28,31 @@ $catch_span_row: 4;
 $catch_span_column: 5;
 $max_width: $grid_size * $grid_columns_pc;
 
+@mixin corner($color: $secondary_color, $size: 10px) {
+    position: relative;
+
+    &::before, &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        border: $size solid transparent;
+    }
+    &::before {
+        top: 0;
+        left: 0;
+        border-top-color: $color;
+        border-left-color: $color;
+    }
+    &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom-color: $color;
+        border-right-color: $color;
+    }
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -67,16 +92,17 @@ $max_width: $grid_size * $grid_columns_pc;
         grid-gap: 5px;
 
         & .catch {
+            position: relative;
             grid-row: 1 / span $catch_span_row;
             grid-column: 1 / span $catch_span_column;
             background-image: url("~assets/images/catch-image_1.jpg");
             background-size: cover;
             background-position: center center;
-            border-radius: 10px;
+
+            @include corner($background_color, 20px);
         }
 
         & .grid-small {
-            position: relative;
             grid-column: ($catch_span_column + 1) / span $grid_columns_pc - $catch_span_column;
 
             &.link-about {
@@ -89,7 +115,6 @@ $max_width: $grid_size * $grid_columns_pc;
             & a {
                 width: 100%;
                 height: 100%;
-                position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -98,39 +123,34 @@ $max_width: $grid_size * $grid_columns_pc;
                 letter-spacing: 5px;
                 transition: letter-spacing .5s;
 
+                @include corner($secondary_color, 10px);
+
                 &:hover {
                     letter-spacing: 7px;
                     transition-duration: .2s;
                 }
 
                 &::before, &::after {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    border: 10px solid transparent;
                     opacity: 0;
                     transition-property: opacity,transform;
                     transition-duration: .5s;
                 }
                 &::before {
-                    top: 5px;
-                    left: 5px;
-                    border-top-color: $secondary_color;
-                    border-left-color: $secondary_color;
-                    transform: translate(-3px, -3px);
+                    transform: translate(2px, 2px);
                 }
                 &::after {
-                    bottom: 5px;
-                    right: 5px;
-                    border-bottom-color: $secondary_color;
-                    border-right-color: $secondary_color;
-                    transform: translate(3px, 3px);
+                    transform: translate(-2px, -2px);
                 }
 
                 &:hover::before, &:hover::after {
-                    transform: none;
                     opacity: 1;
                     transition-duration: .2s;
+                }
+                &:hover::before {
+                    transform: translate(5px, 5px);
+                }
+                &:hover::after {
+                    transform: translate(-5px, -5px);
                 }
             }
         }

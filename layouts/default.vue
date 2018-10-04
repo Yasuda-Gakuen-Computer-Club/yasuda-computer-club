@@ -15,7 +15,7 @@ html, body {
     height: 100%;
 }
 body {
-    background-color: #FAFAFA;
+    background-color: $background_color;
     font-family: sans-serif;
 }
 a {
