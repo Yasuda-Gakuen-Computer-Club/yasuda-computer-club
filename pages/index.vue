@@ -5,7 +5,12 @@
         </header>
         <main class="main">
             <div class="grid-container">
-                <div class="catch"></div>
+                <div class="catch">
+                    <div class="catch-text">
+                        ここに<br>
+                        なにかいれる
+                    </div>
+                </div>
                 <div class="grid-small link-about"><nuxt-link to="about/">ABOUT</nuxt-link></div>
                 <div class="grid-small link-activities"><nuxt-link to="activities/">ACTIVITIES</nuxt-link></div>
             </div>
@@ -98,8 +103,17 @@ $max_width: $grid_size * $grid_columns_pc;
             background-image: url("~assets/images/catch-image_1.jpg");
             background-size: cover;
             background-position: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             @include corner($background_color, 20px);
+
+            & .catch-text {
+                font-family: "Folk Medium", serif;
+                font-size: 2em;
+                color: #FFF;
+            }
         }
 
         & .grid-small {

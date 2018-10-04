@@ -16,7 +16,7 @@ html, body {
 }
 body {
     background-color: $background_color;
-    font-family: sans-serif;
+    font-family: "Shin Go Regular", sans-serif;
 }
 a {
     color: #3F51B5;
