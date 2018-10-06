@@ -1,4 +1,14 @@
-@mixin corner($color: $secondary_color, $size: 10px) {
+@mixin corner(
+    $color: $theme_color,
+    $size: 10px,
+    $offset: 0,
+    $enableHoverAnim: false,
+    $move: 2px,
+    $opacityOut: 0,
+    $opacityIn: 1,
+    $durationIn: .2s,
+    $durationOut: .5s ) {
+
     position: relative;
 
     &::before, &::after {
@@ -7,18 +17,90 @@
         width: 0;
         height: 0;
         position: absolute;
+        border: {
+            top: $size solid transparent;
+            bottom: $size solid transparent;
+        };
+    }
+
+    &::before {
+        top: $offset;
+        left: $offset;
+        border-right: $size solid $color;
+        transform: translateY(-$size) rotate(45deg);
+        transform-origin: left center;
+    }
+
+    &::after {
+        right: $offset;
+        bottom: $offset;
+        border-left: $size solid $color;
+        transform: translateY($size) rotate(45deg);
+        transform-origin: right center;
+    }
+
+    @if ($enableHoverAnim) {
+        &::before, &::after {
+            opacity: $opacityOut;
+            transition-property: opacity,transform;
+            transition-duration: $durationOut;
+        }
+
+        &:hover::before, &:hover::after {
+            opacity: $opacityIn;
+            transition-duration: $durationIn;
+        }
+        &:hover::before {
+            transform: translate($move, $move - $size) rotate(45deg);
+        }
+        &:hover::after {
+            transform: translate(-$move, $size - $move) rotate(45deg);
+        }
+    }
+
+    /*&::before, &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
         border: $size solid transparent;
     }
     &::before {
-        top: 0;
-        left: 0;
+        top: $offset;
+        left: $offset;
         border-top-color: $color;
         border-left-color: $color;
     }
     &::after {
-        bottom: 0;
-        right: 0;
+        bottom: $offset;
+        right: $offset;
         border-bottom-color: $color;
         border-right-color: $color;
     }
+
+    @if ($enableHoverAnim) {
+        &::before, &::after {
+            opacity: 0;
+            transition-property: opacity,transform;
+            transition-duration: $duration;
+        }
+        &::before {
+            transform: translate(2px, 2px);
+        }
+        &::after {
+            transform: translate(-2px, -2px);
+        }
+
+        &:hover::before, &:hover::after {
+            opacity: 1;
+            transition-duration: .2s;
+        }
+        &:hover::before {
+            transform: translate(5px, 5px);
+        }
+        &:hover::after {
+            transform: translate(-5px, -5px);
+        }
+    }*/
 }

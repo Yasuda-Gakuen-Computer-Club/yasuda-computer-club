@@ -5,22 +5,32 @@
         </header>
         <main class="main">
             <div class="grid-container">
-                <PageIndexCatchphrase class="catchphrase"/>
+                <Catchphrase class="catchphrase"/>
                 <div class="grid-small link-about"><nuxt-link to="about/">ABOUT</nuxt-link></div>
                 <div class="grid-small link-activities"><nuxt-link to="activities/">ACTIVITIES</nuxt-link></div>
+                <GridItem
+                    v-for="(item, i) in gridItems"
+                    :key="'grid-item_' + i" v-bind="item"/>
             </div>
         </main>
     </div>
 </template>
 
 <script>
+import config from "~/contents/indexConfig.json";
+
 import PageIndexCatchphrase from "~/components/PageIndexCatchphrase.vue";
+import PageIndexGridItem from "~/components/PageIndexGridItem.vue";
 
 export default {
     name: "PageIndex",
     components: {
-        PageIndexCatchphrase
-    }
+        Catchphrase: PageIndexCatchphrase,
+        GridItem: PageIndexGridItem
+    },
+    data: () => ({
+        gridItems: config.gridItems
+    })
 }
 </script>
 
@@ -97,34 +107,11 @@ $max_width: $grid_size * $grid_columns_pc + $grid_gap * ($grid_columns_pc - 1);
                 letter-spacing: 5px;
                 transition: letter-spacing .5s;
 
-                @include corner($secondary_color, 10px);
+                @include corner($theme_color, 15px, 2px, true);
 
                 &:hover {
                     letter-spacing: 7px;
                     transition-duration: .2s;
-                }
-
-                &::before, &::after {
-                    opacity: 0;
-                    transition-property: opacity,transform;
-                    transition-duration: .5s;
-                }
-                &::before {
-                    transform: translate(2px, 2px);
-                }
-                &::after {
-                    transform: translate(-2px, -2px);
-                }
-
-                &:hover::before, &:hover::after {
-                    opacity: 1;
-                    transition-duration: .2s;
-                }
-                &:hover::before {
-                    transform: translate(5px, 5px);
-                }
-                &:hover::after {
-                    transform: translate(-5px, -5px);
                 }
             }
         }

@@ -1,6 +1,9 @@
 <template>
     <div class="page-index-catch-phrase">
-        <div class="text" :style="style" v-html="text"></div>
+        <div
+            class="text"
+            :style="style"
+            v-html="text"></div>
     </div>
 </template>
 
