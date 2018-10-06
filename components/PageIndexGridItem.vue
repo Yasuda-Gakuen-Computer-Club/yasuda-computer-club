@@ -5,7 +5,12 @@
             color,
             'grid-row': `span ${height}`,
             'grid-column': `span ${width}`
-        }"></div>
+        }">
+        <nuxt-link
+            :to="linkTo"
+            class="link">
+        </nuxt-link>
+    </div>
 </template>
 
 <script>
@@ -35,6 +40,10 @@ export default {
             type: String,
             validator: val => colorCodeRegExp.test(val),
             default: "#FFF"
+        },
+        linkTo: {
+            type: String,
+            default: "/"
         }
     }
 }
@@ -45,5 +54,11 @@ export default {
     box-shadow: inset 0 0 0 5px currentColor;
 
     @include corner(currentColor, 15px, 1px, true, 3px, 1, 1);
+
+    & .link {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
 }
 </style>
