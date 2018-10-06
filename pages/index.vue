@@ -5,12 +5,7 @@
         </header>
         <main class="main">
             <div class="grid-container">
-                <div class="catch">
-                    <div class="catch-text">
-                        ここに<br>
-                        なにかいれる
-                    </div>
-                </div>
+                <PageIndexCatchphrase/>
                 <div class="grid-small link-about"><nuxt-link to="about/">ABOUT</nuxt-link></div>
                 <div class="grid-small link-activities"><nuxt-link to="activities/">ACTIVITIES</nuxt-link></div>
             </div>
@@ -19,8 +14,12 @@
 </template>
 
 <script>
+import PageIndexCatchphrase from "~/components/PageIndexCatchphrase.vue";
+
 export default {
+    name: "PageIndex",
     components: {
+        PageIndexCatchphrase
     }
 }
 </script>
@@ -29,8 +28,8 @@ export default {
 $grid_columns_pc: 8;
 $grid_size: 150px;
 $grid_small_size: 50px;
-$catch_span_row: 4;
-$catch_span_column: 5;
+$catchphrase_span_row: 4;
+$catchphrase_span_column: 5;
 $max_width: $grid_size * $grid_columns_pc;
 
 @mixin corner($color: $secondary_color, $size: 10px) {
@@ -91,15 +90,15 @@ $max_width: $grid_size * $grid_columns_pc;
         width: 100%;
         padding-top: 5px;
         display: grid;
-        grid-template-rows: repeat($catch_span_row - 2, $grid_size) repeat(2, $grid_small_size);
+        grid-template-rows: repeat($catchphrase_span_row - 2, $grid_size) repeat(2, $grid_small_size);
         grid-template-columns: repeat($grid_columns_pc, $grid_size);
         grid-auto-rows: $grid_size;
         grid-gap: 5px;
 
-        & .catch {
+        & .catchphrase {
             position: relative;
-            grid-row: 1 / span $catch_span_row;
-            grid-column: 1 / span $catch_span_column;
+            grid-row: 1 / span $catchphrase_span_row;
+            grid-column: 1 / span $catchphrase_span_column;
             background-image: url("~assets/images/catch-image_1.jpg");
             background-size: cover;
             background-position: center center;
@@ -109,15 +108,15 @@ $max_width: $grid_size * $grid_columns_pc;
 
             @include corner($background_color, 20px);
 
-            & .catch-text {
+            & .catchphrase-text {
                 font-family: "Folk Medium", serif;
-                font-size: 2em;
+                font-size: 3em;
                 color: #FFF;
             }
         }
 
         & .grid-small {
-            grid-column: ($catch_span_column + 1) / span $grid_columns_pc - $catch_span_column;
+            grid-column: ($catchphrase_span_column + 1) / span $grid_columns_pc - $catchphrase_span_column;
 
             &.link-about {
                 grid-row: 3;
