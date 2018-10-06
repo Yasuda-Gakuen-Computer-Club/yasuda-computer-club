@@ -1,0 +1,24 @@
+@mixin corner($color: $secondary_color, $size: 10px) {
+    position: relative;
+
+    &::before, &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        border: $size solid transparent;
+    }
+    &::before {
+        top: 0;
+        left: 0;
+        border-top-color: $color;
+        border-left-color: $color;
+    }
+    &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom-color: $color;
+        border-right-color: $color;
+    }
+}

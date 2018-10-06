@@ -1,8 +1,10 @@
 {
     "catchphrases": [
         {
-            "text": "ここに\nなにかいれる",
-            "style": "color: #000"
+            "text": "あそび半分、\nまじめ半分。",
+            "style": {
+                "font-size": "4em"
+            }
         }
     ]
 }

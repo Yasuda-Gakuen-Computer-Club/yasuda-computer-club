@@ -1,6 +1,6 @@
 <template>
-    <div class="catchphrase">
-        <div class="catchphrase-text" :style="style">{{ text }}</div>
+    <div class="page-index-catch-phrase">
+        <div class="text" :style="style" v-html="text"></div>
     </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
             return this.list[this.index];
         },
         text() {
-            return this.current.text || "";
+            return (this.current.text || "").replace(/\n/g, "<br>");
         },
         style() {
             return this.current.style || "";
@@ -26,3 +26,22 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.page-index-catch-phrase {
+    background-image: url("~assets/images/catch-image_1.jpg");
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include corner($background_color, 20px);
+
+    & .text {
+        font-family: "Folk Medium", serif;
+        font-size: 3em;
+        color: #FFF;
+    }
+}
+</style>

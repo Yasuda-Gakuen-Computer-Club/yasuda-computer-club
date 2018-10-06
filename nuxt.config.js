@@ -41,7 +41,8 @@ module.exports = {
     modules: [
         "@nuxtjs/pwa",
         ["nuxt-sass-resources-loader", [
-            "~/assets/sass/variables.scss"
+            "~/assets/sass/variables.scss",
+            "~/assets/sass/mixins.scss"
         ]]
     ],
 

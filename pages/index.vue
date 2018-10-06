@@ -5,7 +5,7 @@
         </header>
         <main class="main">
             <div class="grid-container">
-                <PageIndexCatchphrase/>
+                <PageIndexCatchphrase class="catchphrase"/>
                 <div class="grid-small link-about"><nuxt-link to="about/">ABOUT</nuxt-link></div>
                 <div class="grid-small link-activities"><nuxt-link to="activities/">ACTIVITIES</nuxt-link></div>
             </div>
@@ -28,34 +28,10 @@ export default {
 $grid_columns_pc: 8;
 $grid_size: 150px;
 $grid_small_size: 50px;
+$grid_gap: 5px;
 $catchphrase_span_row: 4;
 $catchphrase_span_column: 5;
-$max_width: $grid_size * $grid_columns_pc;
-
-@mixin corner($color: $secondary_color, $size: 10px) {
-    position: relative;
-
-    &::before, &::after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 0;
-        position: absolute;
-        border: $size solid transparent;
-    }
-    &::before {
-        top: 0;
-        left: 0;
-        border-top-color: $color;
-        border-left-color: $color;
-    }
-    &::after {
-        bottom: 0;
-        right: 0;
-        border-bottom-color: $color;
-        border-right-color: $color;
-    }
-}
+$max_width: $grid_size * $grid_columns_pc + $grid_gap * ($grid_columns_pc - 1);
 
 .header {
     position: fixed;
@@ -93,26 +69,11 @@ $max_width: $grid_size * $grid_columns_pc;
         grid-template-rows: repeat($catchphrase_span_row - 2, $grid_size) repeat(2, $grid_small_size);
         grid-template-columns: repeat($grid_columns_pc, $grid_size);
         grid-auto-rows: $grid_size;
-        grid-gap: 5px;
+        grid-gap: $grid_gap;
 
         & .catchphrase {
-            position: relative;
             grid-row: 1 / span $catchphrase_span_row;
             grid-column: 1 / span $catchphrase_span_column;
-            background-image: url("~assets/images/catch-image_1.jpg");
-            background-size: cover;
-            background-position: center center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            @include corner($background_color, 20px);
-
-            & .catchphrase-text {
-                font-family: "Folk Medium", serif;
-                font-size: 3em;
-                color: #FFF;
-            }
         }
 
         & .grid-small {
