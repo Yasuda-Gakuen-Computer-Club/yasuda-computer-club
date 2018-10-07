@@ -54,7 +54,7 @@ export default {
 .grid-item {
     border: 1px solid $theme_color;
 
-    @include corner($secondary_color, 15px, 2px);
+    @include corner($theme_color, 15px, 2px);
 
     & .link {
         display: block;
