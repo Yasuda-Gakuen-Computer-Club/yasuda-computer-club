@@ -6,8 +6,8 @@
         <main class="main">
             <div class="grid-container">
                 <Catchphrase class="catchphrase"/>
-                <div class="grid-small link-about"><nuxt-link to="about/">ABOUT</nuxt-link></div>
-                <div class="grid-small link-activities"><nuxt-link to="activities/">ACTIVITIES</nuxt-link></div>
+                <BaseButtonLink class="grid-small link-about" to="about/">ABOUT</BaseButtonLink>
+                <BaseButtonLink class="grid-small link-activities" to="activities/">ACTIVITIES</BaseButtonLink>
                 <GridItem
                     v-for="(item, i) in gridItems"
                     :key="'grid-item_' + i" v-bind="item">
@@ -21,17 +21,21 @@
 <script>
 import config from "~/contents/indexConfig.json";
 
+import BaseButtonLink from "~/components/BaseButtonLink.vue";
 import PageIndexCatchphrase from "~/components/PageIndexCatchphrase.vue";
 import PageIndexGridItem from "~/components/PageIndexGridItem.vue";
 
 const components = {
+    BaseButtonLink,
     Catchphrase: PageIndexCatchphrase,
     GridItem: PageIndexGridItem
 };
 
 const gridItemContext = require.context("~/contents/indexGridItems", false, /\.vue$/);
-console.log(gridItemContext("./festival.vue").default, PageIndexCatchphrase);
-config.gridItems.forEach(item => components[`GridItem_${item.name}`] = gridItemContext(item.component).default);
+config.gridItems.forEach(item =>
+    components[`GridItem_${item.name}`]
+        = gridItemContext(item.component).default
+);
 
 export default {
     name: "PageIndex",
@@ -107,27 +111,6 @@ $max_width: $grid_size * $grid_columns_pc + $grid_gap * ($grid_columns_pc - 1);
             }
             &.link-activities {
                 grid-row: 4;
-            }
-
-            & a {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border: 1px solid $theme_color;
-                color: $theme_color;
-                letter-spacing: 5px;
-                transition: .5s;
-
-                @include corner($secondary_color, 15px, 2px);
-
-                &:hover {
-                    letter-spacing: 7px;
-                    transition-duration: .2s;
-                    color: $secondary_color;
-                    border-color: $secondary_color;
-                }
             }
         }
     }
