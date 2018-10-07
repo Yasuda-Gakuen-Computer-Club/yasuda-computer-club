@@ -120,7 +120,7 @@ $max_width: $grid_size * $grid_columns_pc + $grid_gap * ($grid_columns_pc - 1);
                 letter-spacing: 5px;
                 transition: .5s;
 
-                @include corner($secondary_color, 15px, 2px, true);
+                @include corner($secondary_color, 15px, 2px);
 
                 &:hover {
                     letter-spacing: 7px;
