@@ -105,13 +105,15 @@ $max_width: $grid_size * $grid_columns_pc + $grid_gap * ($grid_columns_pc - 1);
                 border: 1px solid $theme_color;
                 color: $theme_color;
                 letter-spacing: 5px;
-                transition: letter-spacing .5s;
+                transition: .5s;
 
-                @include corner($theme_color, 15px, 2px, true);
+                @include corner($secondary_color, 15px, 2px, true);
 
                 &:hover {
                     letter-spacing: 7px;
                     transition-duration: .2s;
+                    color: $secondary_color;
+                    border-color: $secondary_color;
                 }
             }
         }
