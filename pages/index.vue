@@ -10,7 +10,9 @@
                 <div class="grid-small link-activities"><nuxt-link to="activities/">ACTIVITIES</nuxt-link></div>
                 <GridItem
                     v-for="(item, i) in gridItems"
-                    :key="'grid-item_' + i" v-bind="item"/>
+                    :key="'grid-item_' + i" v-bind="item">
+                    <div :is="gridItemComponents[i]"/>
+                </GridItem>
             </div>
         </main>
     </div>
@@ -22,15 +24,26 @@ import config from "~/contents/indexConfig.json";
 import PageIndexCatchphrase from "~/components/PageIndexCatchphrase.vue";
 import PageIndexGridItem from "~/components/PageIndexGridItem.vue";
 
+const components = {
+    Catchphrase: PageIndexCatchphrase,
+    GridItem: PageIndexGridItem
+};
+
+const gridItemContext = require.context("~/contents/indexGridItems", false, /\.vue$/);
+console.log(gridItemContext("./festival.vue").default, PageIndexCatchphrase);
+config.gridItems.forEach(item => components[`GridItem_${item.name}`] = gridItemContext(item.component).default);
+
 export default {
     name: "PageIndex",
-    components: {
-        Catchphrase: PageIndexCatchphrase,
-        GridItem: PageIndexGridItem
-    },
+    components,
     data: () => ({
         gridItems: config.gridItems
-    })
+    }),
+    computed: {
+        gridItemComponents() {
+            return this.gridItems.map(item => `GridItem_${item.name}`);
+        }
+    }
 }
 </script>
 

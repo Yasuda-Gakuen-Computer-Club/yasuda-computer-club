@@ -9,12 +9,13 @@
         <nuxt-link
             :to="linkTo"
             class="link">
+            <slot/>
         </nuxt-link>
     </div>
 </template>
 
 <script>
-import {themeColor} from "~/contents/globalConfig.json"; 
+import {themeColor} from "~/contents/globalConfig.json";
 
 const colorCodeRegExp = /^#([\da-fA-F]{6}|[\da-fA-F]{3})$/;
 
@@ -51,14 +52,15 @@ export default {
 
 <style lang="scss" scoped>
 .grid-item {
-    box-shadow: inset 0 0 0 5px currentColor;
+    border: 1px solid $theme_color;
 
-    @include corner(currentColor, 15px, 1px, true, 3px, 1, 1);
+    @include corner($secondary_color, 15px, 2px, true);
 
     & .link {
         display: block;
         width: 100%;
         height: 100%;
+        color: #000;
     }
 }
 </style>

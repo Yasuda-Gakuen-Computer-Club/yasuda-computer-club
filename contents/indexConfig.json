@@ -9,8 +9,11 @@
     ],
     "gridItems": [
         {
+            "name": "Festival",
             "width": 3,
-            "height": 2
+            "height": 2,
+            "linkTo": "/festival",
+            "component": "./festival.vue"
         }
     ]
 }
