@@ -13,12 +13,13 @@ import config from "~/contents/indexConfig.json";
 export default {
     name: "PageIndexCatchphrase",
     data: () => ({
+        random: Math.random(),
         list: config.catchphrases
     }),
     computed: {
         current() {
             const {list} = this;
-            return list[Math.floor(Math.random() * list.length)];
+            return list[Math.floor(this.random * list.length)];
         },
         text() {
             return (this.current.text || "").replace(/\n/g, "<br>");
