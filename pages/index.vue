@@ -1,7 +1,9 @@
 <template>
     <div>
         <header class="header">
-            <h1 class="site-title">安田学園コンピュータークラブ</h1>
+            <h1 class="site-title">
+                <img src="~/assets/images/site-logo.svg" alt="安田学園 コンピュータークラブ">
+            </h1>
         </header>
         <main class="main">
             <div class="grid-container">
@@ -56,30 +58,26 @@ $grid_columns_pc: 8;
 $grid_size: 150px;
 $grid_small_size: 50px;
 $grid_gap: 5px;
-$catchphrase_span_row: 4;
-$catchphrase_span_column: 5;
+$catchphrase_span_row_pc: 4;
+$catchphrase_span_column_pc: 5;
+$catchphrase_span_row_tab: 4;
+$catchphrase_span_column_tab: 4;
 $max_width: $grid_size * $grid_columns_pc + $grid_gap * ($grid_columns_pc - 1);
+$horizontal_margin: 40px;
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 80px;
+    padding: 10px 20px;
     border-bottom: 1px solid $theme_color;
 
     & .site-title {
-        width: 100%;
         max-width: $max_width;
-        height: 100%;
         margin: 0 auto;
-        display: flex;
-        align-items: center;
-        color: $theme_color;
-        font: {
-            family: "GSanSerif-B";
-            weight: normal;
-            size: 36px;
+
+        & img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
         }
     }
 }
@@ -87,30 +85,84 @@ $max_width: $grid_size * $grid_columns_pc + $grid_gap * ($grid_columns_pc - 1);
     width: 100%;
     max-width: $max_width;
     margin: 0 auto;
-    padding-top: 80px;
 
     & .grid-container {
         width: 100%;
         padding-top: 5px;
         display: grid;
-        grid-template-rows: repeat($catchphrase_span_row - 2, $grid_size) repeat(2, $grid_small_size);
+        grid-template-rows: repeat($catchphrase_span_row_pc - 2, $grid_size) repeat(2, $grid_small_size);
         grid-template-columns: repeat($grid_columns_pc, $grid_size);
         grid-auto-rows: $grid_size;
         grid-gap: $grid_gap;
 
         & .catchphrase {
-            grid-row: 1 / span $catchphrase_span_row;
-            grid-column: 1 / span $catchphrase_span_column;
+            grid-row: 1 #{'/'} $catchphrase_span_row_pc + 1;
+            grid-column: 1 #{'/'} $catchphrase_span_column_pc + 1;
         }
 
         & .grid-small {
-            grid-column: ($catchphrase_span_column + 1) / span $grid_columns_pc - $catchphrase_span_column;
+            grid-column: ($catchphrase_span_column_pc + 1) / span $grid_columns_pc - $catchphrase_span_column_pc;
 
             &.link-about {
                 grid-row: 3;
             }
             &.link-activities {
                 grid-row: 4;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $max_width + $horizontal_margin * 2) {
+    .main {
+        padding: 5px $horizontal_margin;
+
+        & .grid-container {
+            grid-template-rows: repeat($catchphrase_span_row_tab - 2, $grid_size) repeat(2, $grid_small_size);
+            grid-template-columns: repeat(auto-fit, $grid-size);
+            justify-content: center;
+
+            & .catchphrase {
+                grid-row: 1 #{'/'} $catchphrase_span_row_tab + 1;
+                grid-column: 1 #{'/'} $catchphrase_span_column_tab + 1;
+            }
+
+            & .grid-small {
+                grid-column: $catchphrase_span_column_tab + 1 #{'/'} -1;
+
+                &.link-about {
+                    grid-row: 3;
+                }
+                &.link-activities {
+                    grid-row: 4;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $grid_size * 5 + $grid-gap * 4 + $horizontal_margin * 2) {
+    .main {
+        .grid-container {
+            width: 100%;
+            justify-content: center;
+            grid-template-rows: repeat(2, 30vw) repeat(2, $grid_small_size);
+            grid-template-columns: repeat(3, 30vw);
+
+            & .catchphrase {
+                grid-row: 1 / 3;
+                grid-column: 1 / 4;
+            }
+
+            & .grid-small {
+                grid-column: 1 / 4;
+
+                &.link-about {
+                    grid-row: 3;
+                }
+                &.link-activities {
+                    grid-row: 4;
+                }
             }
         }
     }
