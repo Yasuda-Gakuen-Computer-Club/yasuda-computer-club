@@ -138,6 +138,7 @@ export default {
             justify-content: center;
             grid-template-rows: repeat(2, 30vw) repeat(2, $grid_small_size);
             grid-template-columns: repeat(3, 30vw);
+            grid-auto-rows: 30vw;
 
             & .catchphrase {
                 grid-row: 1 / 3;
