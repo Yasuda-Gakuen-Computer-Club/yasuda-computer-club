@@ -27,7 +27,7 @@ export default {
     align-items: center;
     border: 1px solid $theme_color;
     color: $theme_color;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     transition: .5s;
 
     @include corner($theme_color, 15px, 3px);
