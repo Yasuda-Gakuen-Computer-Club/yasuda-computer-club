@@ -41,6 +41,7 @@ config.gridItems.forEach(item =>
 
 export default {
     name: "PageIndex",
+    layout: "index",
     components,
     data: () => ({
         gridItems: config.gridItems
