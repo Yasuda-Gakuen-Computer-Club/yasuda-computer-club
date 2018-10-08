@@ -115,7 +115,7 @@ modules: [
 ]
 ```
 
-これで assets/sass/variables.scss に `$theme_color: #2196F3;` と書けば、`$theme_color` 変数が使えるようになっているはずです。
+これで assets/sass/variables.scss に `$theme_color: #2A6DCB;` と書けば、`$theme_color` 変数が使えるようになっているはずです。
 
 # 内容を作る
 
