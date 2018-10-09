@@ -84,6 +84,12 @@ export default {
         grid-template-columns: repeat($grid_columns_pc, $grid_size);
         grid-auto-rows: $grid_size;
         grid-gap: $grid_gap;
+        perspective: 1000px;
+
+        & > * {
+            opacity: 0;
+            animation: grid_item_enter .8s .2s ease-out forwards;
+        }
 
         & .catchphrase {
             grid-row: 1 #{'/'} $catchphrase_span_row_pc + 1;
@@ -156,6 +162,15 @@ export default {
                 }
             }
         }
+    }
+}
+
+@keyframes grid_item_enter {
+    0% {
+        transform: rotate3d(1, -1, -0.5, -5deg);
+    }
+    100% {
+        opacity: 1;
     }
 }
 </style>
