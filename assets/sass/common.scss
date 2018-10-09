@@ -14,7 +14,7 @@ body {
     font-family: "Shin Go Regular", sans-serif;
     color: #424242;
     font-size: 16px;
-    perspective: 100px;
+    perspective: 1000px;
 }
 main {
     h1 {
@@ -47,19 +47,17 @@ main {
 }
 
 .page-enter-active, .page-leave-active {
-    transition: .5s;
+    transition: .3s;
+    transform-origin: top;
 }
-.page-enter, .page-leave-to {
+.page-enter {
+    transform: rotateX(20deg);
     opacity: 0;
 }
-/*.page-enter {
-    transform-origin: top;
-    transform: rotateX(90deg);
-}
 .page-leave-to {
-    transform-origin: bottom;
-    transform: rotateX(-90deg);
-}*/
+    opacity: 0;
+    transform: rotateX(-20deg);
+}
 
 @keyframes h1_after_enter {
     100% {
