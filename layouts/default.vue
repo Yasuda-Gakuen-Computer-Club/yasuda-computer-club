@@ -14,8 +14,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("~/assets/sass/common.scss");
-
 .main {
     max-width: $max_width;
     margin: 0 auto;

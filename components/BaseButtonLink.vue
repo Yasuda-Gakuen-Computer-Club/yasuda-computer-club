@@ -27,6 +27,7 @@ export default {
     align-items: center;
     border: 1px solid $theme_color;
     color: $theme_color;
+    text-decoration: none;
     letter-spacing: 2px;
     transition: .5s;
 

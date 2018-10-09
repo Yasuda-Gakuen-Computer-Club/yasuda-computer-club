@@ -9,6 +9,7 @@ html, body {
     overflow-x: hidden;
 }
 body {
+    margin: 0;
     background-color: $background_color;
     font-family: "Shin Go Regular", sans-serif;
     color: #424242;
@@ -30,7 +31,7 @@ main {
             width: 0;
             height: 10px;
             background-color: rgba($theme_color, .5);
-            animation: slide_width .7s .5s $common_easing forwards;
+            animation: h1_after_enter .7s .3s $common_easing forwards;
         }
     }
 
@@ -44,7 +45,7 @@ main {
     }
 }
 
-@keyframes slide_width {
+@keyframes h1_after_enter {
     100% {
         width: 100%;
     }
