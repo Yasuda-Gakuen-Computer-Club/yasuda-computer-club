@@ -1,10 +1,5 @@
 <template>
     <div>
-        <header class="header">
-            <h1 class="site-title">
-                <img src="~/assets/images/site-logo.svg" alt="安田学園 コンピュータークラブ">
-            </h1>
-        </header>
         <main class="main">
             <div class="grid-container">
                 <Catchphrase class="catchphrase"/>
@@ -41,7 +36,6 @@ config.gridItems.forEach(item =>
 
 export default {
     name: "PageIndex",
-    layout: "index",
     components,
     data: () => ({
         gridItems: config.gridItems
@@ -55,22 +49,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
-    width: 100%;
-    padding: 10px 20px;
-    border-bottom: 1px solid $theme_color;
-
-    & .site-title {
-        max-width: $max_width;
-        margin: 0 auto;
-
-        & img {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-        }
-    }
-}
 .main {
     width: 100%;
     max-width: $max_width;
@@ -84,7 +62,7 @@ export default {
         grid-template-columns: repeat($grid_columns_pc, $grid_size);
         grid-auto-rows: $grid_size;
         grid-gap: $grid_gap;
-        perspective: 1000px;
+        perspective: 100px;
 
         & > * {
             opacity: 0;
@@ -167,7 +145,7 @@ export default {
 
 @keyframes grid_item_enter {
     0% {
-        transform: rotate3d(1, -1, -0.5, -5deg);
+        transform: rotate3d(-1, -1, 1, -2deg);
     }
     100% {
         opacity: 1;
