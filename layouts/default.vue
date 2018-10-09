@@ -1,7 +1,7 @@
 <template>
     <div>
         <CommonHeader/>
-        <nuxt/>
+        <nuxt class="main"/>
     </div>
 </template>
 
@@ -13,5 +13,12 @@ export default {
 }
 </script>
 
-<style lang="scss" src="~/assets/sass/common.scss">
+<style lang="scss">
+@import url("~/assets/sass/common.scss");
+
+.main {
+    max-width: $max_width;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 </style>
