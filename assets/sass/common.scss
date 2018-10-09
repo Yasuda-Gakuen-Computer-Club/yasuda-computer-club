@@ -30,7 +30,7 @@ main {
             width: 0;
             height: 10px;
             background-color: rgba($theme_color, .5);
-            animation: slide_width .7s .5s cubic-bezier(.8,0,.5,1) forwards;
+            animation: slide_width .7s .5s $common_easing forwards;
         }
     }
 
