@@ -9,7 +9,7 @@ module.exports = {
         meta: [
             { charset: "utf-8" },
             { name: "viewport", content: "width=device-width, initial-scale=1" },
-            { hid: "description", name: "description", content: "" }
+            { hid: "description", name: "description", content: "東京都墨田区横網の安田学園コンピュータークラブです。" }
         ],
         link: [
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
