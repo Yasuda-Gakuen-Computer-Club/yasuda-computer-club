@@ -1,0 +1,23 @@
+# .htpasswdを見られないように
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+# Basic認証
+AuthUserfile /home/yasuda-computer/www/.htpasswd
+AuthGroupfile /dev/null
+AuthName "Please enter your ID and password"
+AuthType Basic
+require valid-user
+
+# httpsにリダイレクト
+SetEnvIf REDIRECT_HTTPS (.*) HTTPS=$1 
+<IfModule mod_rewrite.c>
+RewriteEngine on 
+RewriteCond %{HTTP_HOST} ^(www\.)?yasuda-computer\.sakura\.ne\.jp$ [NC] 
+RewriteRule .* https://yasuda-computer-club.org%{REQUEST_URI} [R=301,L]
+RewriteCond %{ENV:HTTPS} !on 
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L] 
+</IfModule>
