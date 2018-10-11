@@ -19,6 +19,9 @@ module.exports = {
             { rel: "manifest", href: "/site.webmanifest" },
             { rel: "mask-icon", href: "/safari-pinned-tab.svg", color: "#2A6DCB" },
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
+        ],
+        script: [
+            { type: "text/javascript", src: "//webfonts.sakura.ne.jp/js/sakura.js" }
         ]
     },
 
